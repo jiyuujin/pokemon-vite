@@ -1,0 +1,21 @@
+.search {
+  display: block;
+  max-width: 80ch;
+  padding: 1rem 0;
+  margin: auto;
+  border-bottom: 1px #efefef solid;
+}
+
+.search__item {
+  transition: 0.3s;
+  position: relative;
+  margin: 0 4rem;
+}
+
+.search__item label {
+  width: 100%;
+}
+
+.search__item input {
+  width: 100%;
+}

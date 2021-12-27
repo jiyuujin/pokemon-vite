@@ -6,3 +6,7 @@ dist
 out
 *.local
 .idea
+
+build
+
+.env
