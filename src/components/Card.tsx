@@ -16,6 +16,9 @@ export const Card = (props: Props) => {
       <img
         alt={`${props.pokemon.name} image`}
         src={Endpoints.POKEMON_IMG_DOMAIN(props.pokemon.name)}
+        width={400}
+        height={300}
+        decoding="async"
         className="gallery__item__img"
       />
       <div className="gallery__item__caption">

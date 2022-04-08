@@ -30,9 +30,7 @@
 .gallery__item__img {
   max-width: 100%;
   object-fit: cover;
-  height: 300px;
   object-position: top;
-  width: 400px;
 }
 
 .gallery__item__caption {
