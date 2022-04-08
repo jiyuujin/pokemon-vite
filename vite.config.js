@@ -1,28 +1,27 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const viteEnv = {}
-Object.keys(process.env).forEach((key) => {
-  if (key.startsWith(`VITE_`)) {
-    viteEnv[`import.meta.env.${key}`] = process.env[key]
+export default ({ mode }) => {
+  process.env = {
+    ...process.env,
+    ...loadEnv(mode, process.cwd()),
   }
-})
 
-module.exports = defineConfig({
-  base: './',
-  root: './src',
-  build: {
-    outDir: '../build',
-    emptyOutDir: true
-  },
-  plugins: [react()],
-  define: viteEnv,
-  server: {
-    fs: {
-      strict: true
-    }
-  },
-  test: {
-    environment: 'jsdom'
-  }
-})
+  return defineConfig({
+    base: './',
+    root: './src',
+    build: {
+      outDir: '../build',
+      emptyOutDir: true,
+    },
+    plugins: [react()],
+    server: {
+      fs: {
+        strict: true,
+      },
+    },
+    test: {
+      environment: 'jsdom',
+    },
+  })
+}
